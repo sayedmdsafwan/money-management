@@ -1,15 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash Management</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <section class="">
-        <h2>Cash Management</h2>
-    </section>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cash Management</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <section class="container mx-auto py-8">
+            <h2 class="text-5xl text-center my-4 text-indigo-500">
+                Cash Management
+            </h2>
+            <div class="mt-8 grid grid-cols-2 gap-8">
+                <div>
+                    <img
+                        class="rounded-xl"
+                        src="images/money.jpeg"
+                        alt="Money Image"
+                    />
+                </div>
+                <div class="bg-slate-200 rounded-lg p-6 text-center">
+                    <div>
+                        <h4 class="text-xl text-center my-2">Income</h4>
+                        <label class="mr-2 text-xl" for="income">Income:</label>
+                        <input
+                            value="10000"
+                            id="income"
+                            class="py-1 px-2 rounded"
+                            type="text"
+                        />
+                        <h4 class="text-xl text-center my-2">Expenses</h4>
+                        <div class="mb-4">
+                            <label class="mr-2 text-xl" for="food">Food:</label>
+                            <input
+                                value="3000"
+                                id="food"
+                                class="py-1 px-2 rounded"
+                                type="text"
+                            /><br />
+                        </div>
+                        <div class="mb-4">
+                            <label class="mr-2 text-xl" for="Rent">Rent:</label>
+                            <input
+                                value="3000"
+                                id="Rent"
+                                class="py-1 px-2 rounded"
+                                type="text"
+                            /><br />
+                        </div>
+                        <div class="mb-4">
+                            <label class="mr-2 text-xl" for="Clothes"
+                                >Clothes:</label
+                            >
+                            <input
+                                value="3000"
+                                id="Clothes"
+                                class="py-1 px-2 rounded"
+                                type="text"
+                            /><br />
+                        </div>
+                        <button
+                            id="calculate"
+                            class="btn bg-indigo-500 px-8 mb-3 py-3 rounded text-white"
+                        >
+                            Calculate
+                        </button>
+                        <h4 class="text-xl text-center my-2">
+                            Total Expenses:
+                            <span id="total-expenses">5500</span>
+                        </h4>
+                        <h4 class="text-xl text-center">
+                            Balance: <span id="balance">4500</span>
+                        </h4>
+                        <div class="my-4">
+                            <label class="mr-2 text-xl" for="Clothes"
+                                >Clothes:</label
+                            >
+                            <input
+                                value="3000"
+                                id="Clothes"
+                                class="py-1 mr-3 px-2 rounded"
+                                type="text"
+                            />%
+                            <button
+                                class="btn ml-3 bg-indigo-500 px-8 py-3 rounded text-white"
+                            >
+                                Save
+                            </button>
+                        </div>
+                        <h4 class="text-xl text-center">
+                            Saving Amount: <span id="saving-amount">2000</span>
+                        </h4>
+                        <h4 class="text-xl text-center mt-2">
+                            Remaining Balance:
+                            <span id="rest-balance">2500</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
