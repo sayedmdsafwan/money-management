@@ -52,7 +52,7 @@ document.getElementById("savings").addEventListener("click", function () {
         clothPrice < 0 ||
         isNaN(clothPrice)
     ) {
-        alert("Please give positive integer value");
+        alert("Please give positive value");
     } else {
         const totalExpense = foodPrice + rentPrice + clothPrice;
         if (totalExpense > incomeAmount) {
@@ -68,7 +68,7 @@ document.getElementById("savings").addEventListener("click", function () {
                 savingsTotal < 0
             ) {
                 alert(
-                    "please enter a positive integer which will not exceed the total balance"
+                    "please enter a positive value which will not exceed the total balance"
                 );
             } else {
                 const savingAmount = document.getElementById("saving-amount");
