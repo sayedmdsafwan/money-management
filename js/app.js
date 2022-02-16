@@ -1,5 +1,3 @@
-// const saveInput = document.getElementById('save');
-
 function getInput(inputId) {
     const inputVal = document.getElementById(inputId);
     const inputText = inputVal.value;
@@ -12,12 +10,23 @@ document.getElementById("calculate").addEventListener("click", function () {
     const foodPrice = getInput("food");
     const rentPrice = getInput("rent");
     const clothPrice = getInput("clothes");
-    if (incomeAmount < 0 || foodPrice < 0 || rentPrice < 0 || clothPrice < 0) {
-        alert("Please give positive value");
+    if (
+        incomeAmount < 0 ||
+        isNaN(incomeAmount) ||
+        foodPrice < 0 ||
+        isNaN(foodPrice) ||
+        rentPrice < 0 ||
+        isNaN(rentPrice) ||
+        clothPrice < 0 ||
+        isNaN(clothPrice)
+    ) {
+        alert("Please give positive integer value");
     } else {
         const totalExpense = foodPrice + rentPrice + clothPrice;
         if (totalExpense > incomeAmount) {
-            alert("total expenses exceeds total income. Put a value that is lower than total income");
+            alert(
+                "total expenses exceeds total income. Put a value that is lower than total income"
+            );
         } else {
             document.getElementById("total-expenses").innerText = totalExpense;
             const balance = incomeAmount - totalExpense;
@@ -27,8 +36,44 @@ document.getElementById("calculate").addEventListener("click", function () {
 });
 
 document.getElementById("savings").addEventListener("click", function () {
+    // line added
     const incomeAmount = getInput("income");
+    const foodPrice = getInput("food");
+    const rentPrice = getInput("rent");
+    const clothPrice = getInput("clothes");
     const savingsPercent = getInput("save");
-    const savingsTotal = (incomeAmount / 100) * savingsPercent;
-    document.getElementById("saving-amount").innerText = savingsTotal;
+    if (
+        incomeAmount < 0 ||
+        isNaN(incomeAmount) ||
+        foodPrice < 0 ||
+        isNaN(foodPrice) ||
+        rentPrice < 0 ||
+        isNaN(rentPrice) ||
+        clothPrice < 0 ||
+        isNaN(clothPrice)
+    ) {
+        alert("Please give positive integer value");
+    } else {
+        const totalExpense = foodPrice + rentPrice + clothPrice;
+        if (totalExpense > incomeAmount) {
+            alert(
+                "total expenses exceeds total income. Put a value that is lower than total income"
+            );
+        } else {
+            const balance = incomeAmount - totalExpense;
+            const savingsTotal = (incomeAmount / 100) * savingsPercent;
+            if (savingsTotal > balance || isNaN(savingsTotal)) {
+                alert(
+                    "please enter a positive integer which will not exceed the total balance"
+                );
+            } else {
+                const savingAmount = document.getElementById("saving-amount");
+                savingAmount.innerText = savingsTotal;
+                const savingAmountVal = parseFloat(savingAmount.innerText);
+                const finalBalance = balance - savingAmountVal;
+                document.getElementById("rest-balance").innerText =
+                    finalBalance;
+            }
+        }
+    }
 });
