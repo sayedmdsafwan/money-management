@@ -62,7 +62,11 @@ document.getElementById("savings").addEventListener("click", function () {
         } else {
             const balance = incomeAmount - totalExpense;
             const savingsTotal = (incomeAmount / 100) * savingsPercent;
-            if (savingsTotal > balance || isNaN(savingsTotal)) {
+            if (
+                savingsTotal > balance ||
+                isNaN(savingsTotal) ||
+                savingsTotal < 0
+            ) {
                 alert(
                     "please enter a positive integer which will not exceed the total balance"
                 );
