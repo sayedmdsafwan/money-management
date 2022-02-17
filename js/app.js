@@ -20,7 +20,7 @@ document.getElementById("calculate").addEventListener("click", function () {
         clothPrice < 0 ||
         isNaN(clothPrice)
     ) {
-        alert("Please give positive integer value");
+        alert("Please give positive value");
     } else {
         const totalExpense = foodPrice + rentPrice + clothPrice;
         if (totalExpense > incomeAmount) {
@@ -28,9 +28,10 @@ document.getElementById("calculate").addEventListener("click", function () {
                 "total expenses exceeds total income. Put a value that is lower than total income"
             );
         } else {
-            document.getElementById("total-expenses").innerText = totalExpense;
+            document.getElementById("total-expenses").innerText =
+                totalExpense.toFixed(2);
             const balance = incomeAmount - totalExpense;
-            document.getElementById("balance").innerText = balance;
+            document.getElementById("balance").innerText = balance.toFixed(2);
         }
     }
 });
@@ -72,11 +73,11 @@ document.getElementById("savings").addEventListener("click", function () {
                 );
             } else {
                 const savingAmount = document.getElementById("saving-amount");
-                savingAmount.innerText = savingsTotal;
+                savingAmount.innerText = savingsTotal.toFixed(2);
                 const savingAmountVal = parseFloat(savingAmount.innerText);
                 const finalBalance = balance - savingAmountVal;
                 document.getElementById("rest-balance").innerText =
-                    finalBalance;
+                    finalBalance.toFixed(2);
             }
         }
     }
